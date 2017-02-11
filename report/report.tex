@@ -1,0 +1,171 @@
+%\documentclass[preprint]{acm_proc_article-sp}
+\documentclass{sig-alternate}
+%\documentclass[a4paper,10pt]{article}
+%\usepackage[final,nonatbib]{nips_2016}
+%\usepackage{biblatex}
+\usepackage[style=authoryear,backend=bibtex]{biblatex}
+\addbibresource{sample.bib}
+%\usepackage[section]{placeins}
+\usepackage{bbold}
+% to compile a camera-ready version, add the [final] option, e.g.:
+% \usepackage[final]{nips_2016}
+
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\newcommand*{\vcenteredhbox}[1]{\begingroup
+\setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
+\newcommand\inner[2]{\langle #1, #2 \rangle}
+\usepackage[utf8]{inputenc}
+%http://tex.stackexchange.com/questions/148314/undefined-control-sequence-in-printbibliography-biblatex
+
+\usepackage{esvect}
+
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+% \usepackage[final]{nips_2016}
+
+\usepackage[usenames, dvipsnames]{color}
+
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+%\newcommand*{\vcenteredhbox}[1]{\begingroup
+%\setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
+
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{color}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+
+
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{pifont}
+
+\usepackage{amsmath}
+
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+\DeclareMathOperator*{\argmax}{\arg\!\max}
+
+\algnewcommand{\Inputs}[1]{%
+  \State \textbf{Inputs:}
+  \Statex \hspace*{\algorithmicindent}\parbox[t]{.8\linewidth}{\raggedright #1}
+}
+\algnewcommand{\Initialize}[1]{%
+  \State \textbf{Initialize:}
+  \Statex \hspace*{\algorithmicindent}\parbox[t]{.8\linewidth}{\raggedright #1}
+}
+
+
+
+\title{IEOR290 Project: Matrix completion for social recommendation systems}
+%\author{
+%Danqing Zhang and Junyu Cao
+%}
+
+\numberofauthors{2} 
+\author{
+\alignauthor
+Junyu Cao\\
+       \affaddr{Industrial Engineering \& Operations Research, UC Berkeley}\\
+       \affaddr{Berkeley, CA 90503}\\
+       \email{jycao@berkeley.edu}
+\and
+\alignauthor
+Danqing Zhang\\
+       \affaddr{Systems Engineering}\\
+       \affaddr{Berkeley, CA 90503}\\
+       \email{danqing0703@berkeley.edu}
+}
+
+\begin{document}
+
+\maketitle
+
+
+\keywords{Convex Optimization, Distributed Optimization, Expectation-Maximization (EM) algorithm, Sum-Product, Latent Class Model} % NOT required for Proceedings
+
+
+
+%\section{Literature Review}
+%\subsection{Discrete Choice Modeling \& Logistics Regression}
+%In economics and marketing, researchers uses logit and probit model for discrete choice modeling, but actually binary logit model can be transformed into logistics regression, and multinomial logit model can be transformed into softmax regression, let me explain the binary case. Let us start from random utility theory. We assume that utility function consists of two parts, systematic components of the utilities and disturbance, below is the utility function of person n choosing choice i:
+%\begin{equation}
+%U_{i,n} = V_{i,n}+ \epsilon_{i,n}
+%\end{equation}
+%And the probability person n choosing choice i is:\\
+ %\begin{equation}
+%P_{n}(i) = P(U_{i,n}>U_{j,n})
+%\end{equation}
+
+%If viewing the disturbances as the maximum of a large number of unobserved but independent utility components, then we have $\epsilon \sim EV(\eta,\mu)$, if $\mu=1$, then\\
+ %\begin{equation}
+%P_{n}(i)=P(U_{i,n}>U_{j,n})=P(\epsilon_{n} <V_{i,n}-V_{j,n})=s(V_{i,n}-V_{j,n})
+ %\end{equation}
+%where s is the sigmoid function(a.k.a logistics function). So in this way, we can explain how binary logit model is corresponding to the logistics regression.
+%\subsection{Literature Review on Discrete Choice Modeling with Full Social Networks Settings}
+%There are mainly two directions for incorporating social networks in discrete choice modeling. 
+%The first direction is to add field effect in the random utility function.This field effect can either be the expected choice (\cite{brock2003multinomial}, \cite{fukuda2007incorporating}) or the empirical choice (\cite{dugundji2005discrete}, \cite{goetzke2008network}) of the people in the individuals social network. 
+%The second direction is to model the social group influence as a panel effect, or design a set of group-specific coefficients. This idea was studied in \cite{dugundji2005discrete}and applied in a comparison with field effect method as well as a combination of field effect with panel effect.
+%
+%\input{part0}
+%
+%\input{part1}
+%
+%%\input{part4}
+%\input{part2}
+%
+%\input{part3}
+%
+%
+%
+%\input{part5}
+%
+%\printbibliography
+ 
+\end{document}
